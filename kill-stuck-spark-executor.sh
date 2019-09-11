@@ -4,7 +4,7 @@
 # In my case healthy executors have all CPUs used
 # Unheathy ones usualy have 0-5% CPU used
 
-EXECUTOR_PS_LINE=$(ps aux | grep app-id | grep spark | tr -s ' ')
+EXECUTOR_PS_LINE=$(ps aux | grep org.apache.spark.executor | grep -v grep | tr -s ' ')
 EXECUTOR_CPU_USAGE=$(echo "$EXECUTOR_PS_LINE"|  cut  -d ' '  -f 3)
 EXECUTOR_PID=$(echo "$EXECUTOR_PS_LINE"|  cut  -d ' '  -f 2)
 MIN_ALLOWED_CPU_USAGE=120

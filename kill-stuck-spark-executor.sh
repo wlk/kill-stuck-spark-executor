@@ -7,7 +7,7 @@
 EXECUTOR_PS_LINE=$(ps aux | grep org.apache.spark.executor | grep -v grep | tr -s ' ')
 EXECUTOR_CPU_USAGE=$(echo "$EXECUTOR_PS_LINE"|  cut  -d ' '  -f 3)
 EXECUTOR_PID=$(echo "$EXECUTOR_PS_LINE"|  cut  -d ' '  -f 2)
-MIN_ALLOWED_CPU_USAGE=120
+MIN_ALLOWED_CPU_USAGE=50
 
 if [ -z "$EXECUTOR_PID" ]; then
   echo "Unable to find executor process, exiting..."

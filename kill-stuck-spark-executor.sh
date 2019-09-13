@@ -6,7 +6,7 @@
 
 EXECUTOR_PS_LINE=$(ps aux | grep org.apache.spark.executor | grep -v grep | tr -s ' ')
 EXECUTOR_PID=$(echo "$EXECUTOR_PS_LINE"|  cut  -d ' '  -f 2)
-MIN_ALLOWED_CPU_USAGE=0.2
+MIN_ALLOWED_CPU_USAGE=2
 
 TOTAL_CPU_USAGE=$(top -bn2 | grep '%Cpu' | tail -1 | tr -s ' ' | cut -d ' ' -f 2)
 
